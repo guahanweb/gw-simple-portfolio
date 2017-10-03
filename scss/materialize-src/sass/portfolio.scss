@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+// Colors
+@import "components/color";
+
+$primary-color: color("grey", "darken-3");
+$primary-color-light: lighten($primary-color, 15%);
+$primary-color-dark: darken($primary-color, 15%);
+
+$secondary-color: color("light-blue", "lighten-1");
+$success-color: color("green", "base");
+$error-color: color("orange", "lighten-2");
+$link-color: color("light-blue", "lighten-1");
+
+// Forms
+$input-focus-color: #fff;
+
+// Variables;
+@import "components/variables";
+
+// Reset
+@import "components/normalize";
+
+// components
+@import "components/global";
+@import "components/badges";
+@import "components/icons-material-design";
+@import "components/grid";
+@import "components/navbar";
+@import "components/roboto";
+@import "components/typography";
+@import "components/transitions";
+@import "components/cards";
+@import "components/toast";
+@import "components/tabs";
+@import "components/tooltip";
+@import "components/buttons";
+@import "components/dropdown";
+@import "components/waves";
+@import "components/modal";
+@import "components/collapsible";
+@import "components/chips";
+@import "components/materialbox";
+@import "components/forms/forms";
+@import "components/table_of_contents";
+@import "components/sideNav";
+@import "components/preloader";
+@import "components/slider";
+@import "components/carousel";
+@import "components/tapTarget";
+@import "components/pulse";
+@import "components/date_picker/default";
+@import "components/date_picker/default.date";
+@import "components/date_picker/default.time";
+
+// Form overrides
+.input-field {
+  input[type=text], input[type=email], textarea {
+    color: #fff;
+  }
+}
+
+.toast.error {
+  background-color: color('orange', 'darken-3');
+}
+
+.error.contact-error {
+  background-color: color('orange', 'darken-3');
+  border-radius: 3px;
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 15px;
+    color: #fff;
+  }
+}
+
+.success.contact-success {
+  background-color: color('green', 'darken-2');
+  border-radius: 3px;
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 15px;
+    color: #fff;
+  }
+}

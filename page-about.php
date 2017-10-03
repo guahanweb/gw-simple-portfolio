@@ -16,7 +16,16 @@ get_header();
 ?>
       <?php while (have_posts()): the_post(); ?>
       <article>
-        <?php the_content(); ?>
+        <div class="row">
+          <div class="col m6 s12">
+            <?php the_content(); ?>
+          </div>
+          <div class="col m3 s12">
+            <?php
+            $img = get_the_post_thumbnail(null, 'gw-simple-portfolio-tall');
+            printf('<div class="about-image">%s</div>', $img);
+            ?>
+          </div>
       </article>
       <?php endwhile; ?>
 <?php get_footer(); ?>

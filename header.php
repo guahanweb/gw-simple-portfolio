@@ -14,12 +14,15 @@
           </a>
         </div>
       </div>
-      <div class="col l6 m5 s6">
+      <div class="col l4 m5 s6">
         <div class="header-logo brand-secondary">
           <a href="#" class="brand-logo">
             Photography
           </a>
         </div>
+      </div>
+      <div class="col l2 m4 s12 right">
+        <?php get_template_part('template-parts/content', 'social-nav'); ?>
       </div>
     </div>
     <div class="row">

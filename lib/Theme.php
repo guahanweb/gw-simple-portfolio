@@ -17,6 +17,7 @@ class SimplePortfolio {
   public function configure() {
       \add_theme_support('post-formats', array('gallery'));
       \add_theme_support('post-thumbnails');
+      $this->settings = SimplePortfolioSettings::instance();
   }
 
   public function listen() {
@@ -25,6 +26,9 @@ class SimplePortfolio {
 
     // init
     \add_action('init', array($this, 'initialize'), 11);
+
+    // check dependencies
+    \add_action('admin_notices', array($this, 'checkDependencies'));
 
     // nav bar
     \add_filter('nav_menu_css_class', array($this, 'checkNavClasses'), 10, 2);
@@ -54,11 +58,48 @@ class SimplePortfolio {
     add_image_size('gw-simple-portfolio-main', 720, 9999, true);
     add_image_size('gw-simple-portfolio-tiny', 64, 64, true);
 
+    $this->setupTaxonomies();
+
     register_nav_menus(
       array(
         'header_menu' => __('Header Menu')
       )
     );
+  }
+
+  public function setupTaxonomies() {
+    register_taxonomy(
+      'location',
+      'post',
+      array(
+        'label' => __('Locations'),
+        'labels' => array(
+          'name' => __('Locations'),
+          'singular_name' => __('Location'),
+          'menu_name' => __('Locations'),
+          'all_items' => __('All Locations'),
+          'edit_item' => __('Edit Location'),
+          'update_item' => __('Update Location'),
+          'add_new_item' => __('Add New Location'),
+          'new_item_name' => __('New Location Name')
+        ),
+        'show_admin_column' => true,
+        'hierarchical' => true,
+        'rewrite' => array( 'slug' => __('location') )
+      )
+    );
+  }
+
+  public function checkDependencies() {
+    // Attachments plugin
+    if (!class_exists('Attachments')) {
+      $message = 'The <b><a href="https://github.com/jchristopher/attachments" target="_blank">Attachments</a></b> plugin is not installed/activated. Some features of the <b>GW Simple Portfolio</b> theme will not be available without it.';
+      echo <<<EOM
+<div class="notice notice-warning is-dismissible">
+  <p>${message}</p>
+</div>
+EOM;
+    }
   }
 
   public function checkNavClasses($classes, $item) {

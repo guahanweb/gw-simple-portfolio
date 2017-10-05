@@ -92,8 +92,8 @@ class SimplePortfolio {
 
   public function checkDependencies() {
     // Attachments plugin
-    if (!class_exists('Attachments')) {
-      $message = 'The <b><a href="https://github.com/jchristopher/attachments" target="_blank">Attachments</a></b> plugin is not installed/activated. Some features of the <b>GW Simple Portfolio</b> theme will not be available without it.';
+    if (!class_exists('P2P_Storage')) {
+      $message = 'The <b><a href="https://wordpress.org/plugins/posts-to-posts/" target="_blank">Posts 2 Posts</a></b> plugin is not installed/activated. Some features of the <b>GW Simple Portfolio</b> theme will not be available without it.';
       echo <<<EOM
 <div class="notice notice-warning is-dismissible">
   <p>${message}</p>

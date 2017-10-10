@@ -55,7 +55,7 @@ $input-focus-color: #fff;
 
 // Form overrides
 .input-field {
-  input[type=text], input[type=email], textarea {
+  input[type=text], input[type=email], textarea, input[disabled] {
     color: #fff;
   }
 }

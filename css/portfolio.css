@@ -81,7 +81,7 @@ img {
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-article p {
+article p, article ul {
   color: #eee;
   font-size: 1.3rem;
 

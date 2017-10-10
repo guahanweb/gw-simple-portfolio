@@ -268,3 +268,13 @@ article .entry-header h1 {
 .page-footer {
     padding-bottom: 20px;
 }
+
+.disabled-form {
+  input[type="text"]:disabled {
+    border-bottom: 1px solid #eee;
+  }
+
+  .input-field label {
+    color: #eee;
+  }
+}

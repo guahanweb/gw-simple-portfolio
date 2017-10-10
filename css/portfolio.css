@@ -270,7 +270,7 @@ article .entry-header h1 {
 }
 
 .disabled-form {
-  input[type="text"]:disabled {
+  input[type="text"]:not(.brower-default):disabled {
     border-bottom: 1px solid #eee;
   }
 
